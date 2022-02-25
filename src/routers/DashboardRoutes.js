@@ -9,7 +9,7 @@ import { Navbar } from "../components/ui/NavBar";
 export const DashboardRoutes = () =>{
   return (
     <>
-     {/* En rutas Hijas no es necesario colocar un 'BrowserRouter' de r-r-dom*/}
+     {/* En rutas Hijas no es necesario colocar un 'BrowserRouter' de react-router-dom*/}
       <Navbar />
       
       <div className="container">
