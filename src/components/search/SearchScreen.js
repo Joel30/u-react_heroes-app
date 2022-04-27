@@ -31,7 +31,6 @@ export const SearchScreen = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    console.log(values.searchText);
     navigate(`?q=${values.searchText}`); //mandar query parameters
   }
   
@@ -71,7 +70,7 @@ export const SearchScreen = () => {
 
           {
             (q === '') 
-            ? <div className="alert alert-info"> Buscar un héreo </div>
+            ? <div className="alert alert-info"> Buscar un héroe </div>
             : (heroesFiltered.length === 0)
               && <div className="alert alert-danger"> No hay resultados: { q } </div>
           }
