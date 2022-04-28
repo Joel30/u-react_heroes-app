@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+// const heroImages = require.context('../../assets', true);
+import { heroImages } from "../../helpers/heroImages";
 
 export const HeroCard = ({
   id,
@@ -9,14 +11,19 @@ export const HeroCard = ({
   characters
 }) => {
 
-  const imagePath = `/assets/${id}.jpg`;
+  // const imagePath = `/assets/${id}.jpg`;  // desde [public/assets]
   
   return (
     <div className="col animate__animated animate__fadeIn">
       <div className="card" >
         <div className="row no-gutters">
           <div className="col-4">
-            <img src={imagePath} className="card-img" alt={superhero} />
+            <img 
+              // src={imagePath}  // desde [public/assets] 
+              src={heroImages(`./${id}.jpg`)} // añadir [.default] para imganes, si no funciona
+              className="card-img" 
+              alt={superhero} 
+            />
           </div>
           <div className="col-8">
             <div className="card-body">

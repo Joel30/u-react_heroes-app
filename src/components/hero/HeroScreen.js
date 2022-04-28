@@ -2,6 +2,10 @@ import { useMemo } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { getHeroById } from "../../selectors/getHeroById";
 
+// import batman from '../../assets/dc-batman.jpg' // recurso estático
+// const heroImages = require.context('../../assets', true); //webpack (https://webpack.js.org/guides/dependency-management/#requirecontext)
+import { heroImages } from "../../helpers/heroImages";
+
 export const HeroScreen = () => {
 
   const {heroId} = useParams();
@@ -21,13 +25,15 @@ export const HeroScreen = () => {
 
   const {id, superhero, publisher, alter_ego, first_appearance, characters} = hero;
 
-  const imagePath = `/assets/${id}.jpg`;
+  // const imagePath = `/assets/${id}.jpg`; // desde [public/assets]
 
   return (
     <div className="row mt-5">
       <div className="col-4">
         <img 
-          src={imagePath}
+          // src={imagePath} // desde [public/assets]
+          // src={batman} //usando [import]
+          src={ heroImages(`./${id}.jpg`)} // añadir [.default] para imagenes, si no funciona
           alt={superhero}
           className="img-thumbnail animate__animated animate__fadeInLeft"
         />
